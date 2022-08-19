@@ -25,5 +25,3 @@ def lintcheck(COMPONENT)
   "******lint check completed for ${COMPONENT}********"
    '''
 }
-
-}
