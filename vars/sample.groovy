@@ -1,9 +1,9 @@
 //declaring the function
-def info(message)
+def info(message, URL)
 {
-    echo "INFO: ${message}"
+    echo "INFO: ${message} Url: ${URL}"
 }
 
 //calling the function
 
-info("hai")
+info("hai", "twitter.com")
