@@ -4,6 +4,9 @@
 def call() {
 pipeline {
     agent any
+    environment{
+        SONAR = credentials('sonar')
+    }
     stages {
        stage('Lint check') {
           steps {
@@ -24,4 +27,11 @@ def lintcheck()
   mvn checkstyle:check || true
   echo "******lint check completed for ${COMPONENT}********"
    '''
+}
+
+def sonarcheck()
+{ 
+    sh '''
+    sonar-scanner -Dsonar.host.url=http://172.31.15.137:9000 -Dsonar.login=admin -Dsonar.password=DevOps321 -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
+    '''
 }
