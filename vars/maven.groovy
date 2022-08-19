@@ -22,6 +22,6 @@ def lintcheck(COMPONENT)
   sh '''
   echo -e "******started link check for ${COMPONENT}******"
   mvn checkstyle:check || true
-  "******lint check completed for ${COMPONENT}********"
+  echo "******lint check completed for ${COMPONENT}********"
    '''
 }
