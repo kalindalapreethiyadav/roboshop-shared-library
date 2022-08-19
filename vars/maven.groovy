@@ -20,8 +20,8 @@ pipeline {
 def lintcheck(COMPONENT)
 {
   sh '''
-  echo "******started link check for ${COMPONENT}******"
+  echo -e "******started link check for ${COMPONENT}******"
   mvn checkstyle:check || true
-  echo "******lint check completed for ${COMPONENT}********"
+  "******lint check completed for ${COMPONENT}********"
    '''
 }
