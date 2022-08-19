@@ -8,7 +8,7 @@ pipeline {
        stage('Lint check') {
           steps {
             script{
-              nodejs.lintcheck(COMPONENT) 
+              lintcheck(COMPONENT) 
             }
           }
        }
@@ -19,9 +19,11 @@ pipeline {
 //declaring the function
 def lintcheck(COMPONENT)
 {
-  sh "echo ******started link check******"
-  sh "npm install jslint"
-  sh "ls -lrt node_modules/jslint/bin"
-  sh "~/node_modules/jslint/bin/jslint.js server.js || true"
-  sh "echo ******lint check completed********"
+  sh '''
+  echo "******started link check for ${COMPONENT}******"
+  npm install jslint
+  ls -lrt node_modules/jslint/bin
+  ~/node_modules/jslint/bin/jslint.js server.js || true
+   echo "******lint check completed********"
+   '''
 }
