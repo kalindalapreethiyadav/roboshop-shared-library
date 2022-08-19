@@ -24,6 +24,6 @@ def lintcheck(COMPONENT)
   npm install jslint
   ls -lrt node_modules/jslint/bin
   ~/node_modules/jslint/bin/jslint.js server.js || true
-   echo "******lint check completed********"
+   echo "******lint check completed for ${COMPONENT}********"
    '''
 }
