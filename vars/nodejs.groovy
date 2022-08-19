@@ -1,9 +1,9 @@
 //declaring the function
-def info(message, URL)
+def lintcheck(Component, ENV)
 {
-    echo "INFO: ${message} Url: ${URL}"
+    echo "INFO: ${Component} Url: ${ENV}"
 }
 
 //calling the function
 
-info("hai", "twitter.com")
+info("cart", "dev")
