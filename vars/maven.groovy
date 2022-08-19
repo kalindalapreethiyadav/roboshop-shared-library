@@ -15,6 +15,13 @@ pipeline {
             }
           }
        }
+       stage('Sonar Code check') {
+          steps {
+            script{
+              sonarcheck() 
+            }
+          }
+       }
     }
 }
 }
