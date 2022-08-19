@@ -17,7 +17,7 @@ pipeline {
 }
 
 //declaring the function
-def lintcheck(COMPONENT)
+def lintcheck()
 {
   sh '''
   echo -e "******started link check for ${COMPONENT}******"
