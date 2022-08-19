@@ -32,6 +32,6 @@ def lintcheck()
 def sonarcheck()
 { 
     sh '''
-    sonar-scanner -Dsonar.host.url=http://172.31.15.137:9000 -Dsonar.login=admin -Dsonar.password=DevOps321 -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
+    sonar-scanner -Dsonar.host.url=http://172.31.15.137:9000 -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
     '''
 }
