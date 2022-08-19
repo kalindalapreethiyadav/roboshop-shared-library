@@ -18,7 +18,7 @@ pipeline {
        stage('Sonar Code check') {
           steps {
             script{
-              sh maven clean compile
+              maven clean compile
               sonarcheck() 
             }
           }
