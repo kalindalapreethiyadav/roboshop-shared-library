@@ -32,6 +32,7 @@ def lintcheck()
 {
   sh '''
   echo -e "******started link check for ${COMPONENT}******"
+  pwd
   mvn checkstyle:check || true
   echo "******lint check completed for ${COMPONENT}********"
    '''
@@ -40,6 +41,7 @@ def lintcheck()
 def sonarcheck()
 { 
     sh '''
-    sonar-scanner -Dsonar.host.url=http://172.31.5.148:9000 -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
+    pwd
+    sudo sonar-scanner -Dsonar.host.url=http://172.31.5.148:9000 -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
     '''
 }
