@@ -42,6 +42,7 @@ def sonarcheck()
 { 
     sh '''
     pwd
+    sh mvn clean compile
     sudo sonar-scanner -Dsonar.host.url=http://172.31.5.148:9000 -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
     '''
 }
