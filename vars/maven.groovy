@@ -1,4 +1,21 @@
+//declaring the function
+def lintcheck()
+{
+  sh '''
+  echo -e "******started link check for ${COMPONENT}******"
+  pwd
+  mvn checkstyle:check || true
+  echo "******lint check completed for ${COMPONENT}********"
+   '''
+}
 
+def sonarcheck()
+{ 
+    sh '''
+    echo "hellp"
+    #sonar-scanner -Dsonar.host.url=http://172.31.5.148:9000 -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
+    '''
+}
 //calling the function
 
 def call() {
@@ -18,7 +35,6 @@ pipeline {
        stage('Sonar Code check') {
           steps {
             script{
-              maven clean compile
               sonarcheck() 
             }
           }
@@ -27,22 +43,3 @@ pipeline {
 }
 }
 
-//declaring the function
-def lintcheck()
-{
-  sh '''
-  echo -e "******started link check for ${COMPONENT}******"
-  pwd
-  mvn checkstyle:check || true
-  echo "******lint check completed for ${COMPONENT}********"
-   '''
-}
-
-def sonarcheck()
-{ 
-    sh '''
-    pwd
-    sh mvn clean compile
-    sudo sonar-scanner -Dsonar.host.url=http://172.31.5.148:9000 -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} -Dsonar.projectKey=shipping -Dsonar.java.binaries=target/classes/
-    '''
-}
